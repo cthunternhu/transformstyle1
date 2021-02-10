@@ -29,7 +29,7 @@ function setup() {
 
   // Create two Style methods with different pre-trained models
   style1 = ml5.styleTransfer('models/wave', modelLoaded);
-  style2 = ml5.styleTransfer('models/udnie', modelLoaded);
+  style2 = ml5.styleTransfer('models/pollock', modelLoaded);
 }
 
 // A function to be called when the models have loaded
