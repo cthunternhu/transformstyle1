@@ -57,7 +57,7 @@ function transferImages() {
 //  });
 
   style.transfer(inputImg3, function(err, result3) {
-    resultImg.attribute('src', result3.src);
+    createImg(result3.src).parent('img3T');
   });
 
   statusMsg.html('Done!');
