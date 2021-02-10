@@ -9,10 +9,12 @@ Style Transfer Image Example using p5.js
 This uses a pre-trained model of The Great Wave off Kanagawa and Udnie (Young American Girl, The Dance)
 === */
 
-let inputImg;
+let inputImg1;
+let inputImg2;
+let inputImg3;
 let statusMsg;
 let transferBtn;
-let style1;
+
 let style2;
 
 function setup() {
@@ -21,21 +23,22 @@ function setup() {
   statusMsg = select('#statusMsg');
 
   // Get the input image
-  inputImg = select('#inputImg');
-
+  inputImg1 = select('#inputImg1');
+  inputImg2 = select('#inputImg2');
+  inputImg3 = select('#inputImg3');
   // Transfer Button
   transferBtn = select('#transferBtn')
   transferBtn.mousePressed(transferImages);
 
   // Create two Style methods with different pre-trained models
-  style1 = ml5.styleTransfer('models/wave', modelLoaded);
-  style2 = ml5.styleTransfer('models/pollock', modelLoaded);
+
+  style = ml5.styleTransfer('models/pollock', modelLoaded);
 }
 
 // A function to be called when the models have loaded
 function modelLoaded() {
   // Check if both models are loaded
-  if(style1.ready && style2.ready){
+  if(style.ready){
     statusMsg.html('Ready!')
   }
 }
@@ -44,12 +47,16 @@ function modelLoaded() {
 function transferImages() {
   statusMsg.html('Applying Style Transfer...!');
   
-  style1.transfer(inputImg, function(err, result) {
-    createImg(result.src).parent('styleA');
+  style.transfer(inputImg1, function(err, result1) {
+    createImg(result1.src).parent('img1T');
   });
 
-  style2.transfer(inputImg, function(err, result) {
-    createImg(result.src).parent('styleB');
+  style.transfer(inputImg2, function(err, result2) {
+    createImg(result2.src).parent('img2T');
+  });
+
+  style.transfer(inputImg3, function(err, result3) {
+    createImg(result3.src).parent('img3T');
   });
 
   statusMsg.html('Done!');
