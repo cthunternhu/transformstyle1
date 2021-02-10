@@ -23,6 +23,7 @@ function setup() {
   statusMsg = select('#statusMsg');
 
   // Get the input image
+  resultImg = createImg('');
   inputImg1 = select('#inputImg1');
   inputImg2 = select('#inputImg2');
   inputImg3 = select('#inputImg3');
@@ -47,16 +48,16 @@ function modelLoaded() {
 function transferImages() {
   statusMsg.html('Applying Style Transfer...!');
   
-  style.transfer(inputImg1, function(err, result1) {
-    createImg(result1.src).parent('img1T');
-  });
+//  style.transfer(inputImg1, function(err, result1) {
+//    createImg(result1.src).parent('img1T');
+//  });
 
-  style.transfer(inputImg2, function(err, result2) {
-    createImg(result2.src).parent('img2T');
-  });
+//  style.transfer(inputImg2, function(err, result2) {
+//    createImg(result2.src).parent('img2T');
+//  });
 
   style.transfer(inputImg3, function(err, result3) {
-    createImg(result3.src).parent('img3T');
+    resultImg.attribute('src', result3.src);
   });
 
   statusMsg.html('Done!');
