@@ -33,7 +33,7 @@ function setup() {
 
   // Create two Style methods with different pre-trained models
 
-  style = ml5.styleTransfer('models/pollock', modelLoaded);
+  style = ml5.styleTransfer('models/va', modelLoaded);
 }
 
 // A function to be called when the models have loaded
@@ -48,17 +48,17 @@ function modelLoaded() {
 function transferImages() {
   statusMsg.html('Applying Style Transfer...!');
   
-//  style.transfer(inputImg1, function(err, result1) {
-//    createImg(result1.src).parent('img1T');
-//  });
+  style.transfer(inputImg1, function(err, result1) {
+    createImg(result1.src).parent('img1T');
+  });
 
 //  style.transfer(inputImg2, function(err, result2) {
 //    createImg(result2.src).parent('img2T');
 //  });
 
-  style.transfer(inputImg3, function(err, result3) {
-    createImg(result3.src).parent('img3T');
-  });
+ // style.transfer(inputImg3, function(err, result3) {
+ //   createImg(result3.src).parent('img3T');
+//  });
 
   statusMsg.html('Done!');
 }
