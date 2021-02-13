@@ -52,13 +52,13 @@ function transferImages() {
     createImg(result1.src).parent('img1T');
   });
 
-//  style.transfer(inputImg2, function(err, result2) {
-//    createImg(result2.src).parent('img2T');
-//  });
+  style.transfer(inputImg2, function(err, result2) {
+    createImg(result2.src).parent('img2T');
+  });
 
- // style.transfer(inputImg3, function(err, result3) {
- //   createImg(result3.src).parent('img3T');
-//  });
+  style.transfer(inputImg3, function(err, result3) {
+    createImg(result3.src).parent('img3T');
+  });
 
   statusMsg.html('Done!');
 }
